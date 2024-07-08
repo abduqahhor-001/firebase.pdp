@@ -8,7 +8,7 @@ class RTDBService {
   static final _database = FirebaseDatabase.instance.ref();
 
   static Future<Stream<DatabaseEvent>> addPost(Post post) async {
-    _database.child("posts").push().set(post.toJson());
+    _database.child("posts").push().set(post);
     return _database.onChildAdded;
   }
 

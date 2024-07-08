@@ -1,24 +1,31 @@
 class Post {
-  int? id;
   String? firstname;
   String? lastname;
   String? content;
   String? date;
+  String? imageUrl; // Add this line
 
-  Post({this.id, this.firstname, this.lastname, this.content, this.date});
+  Post({this.firstname, this.lastname, this.content, this.date, this.imageUrl}); // Update the constructor
 
-  Post.fromJson(Map<String, dynamic> json)
-      : id = json['id'],
-        firstname = json['firstname'],
-        lastname = json['lastname'],
-        content = json['content'],
-        date = json['date'];
+  // Add a factory method to create a Post from a map (if you're using maps)
+  factory Post.fromMap(Map<String, dynamic> map) {
+    return Post(
+      firstname: map['firstname'],
+      lastname: map['lastname'],
+      content: map['content'],
+      date: map['date'],
+      imageUrl: map['imageUrl'],
+    );
+  }
 
-  Map<String, dynamic> toJson() => {
-    'id': id,
-    'firstname': firstname,
-    'lastname': lastname,
-    'content': content,
-    'date': date,
-  };
+  // Add a method to convert a Post to a map (if you're using maps)
+  Map<String, dynamic> toMap() {
+    return {
+      'firstname': firstname,
+      'lastname': lastname,
+      'content': content,
+      'date': date,
+      'imageUrl': imageUrl,
+    };
+  }
 }

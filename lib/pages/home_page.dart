@@ -90,6 +90,8 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          if (post.imageUrl != null && post.imageUrl!.isNotEmpty)
+            Image.network(post.imageUrl!),
           Row(
             children: [
               Text(
